@@ -1,9 +1,10 @@
 package org.example;
 
-import edu.uci.ics.jung.graph.SparseMultigraph;
 import org.example.graphTravelers.BfsGraphTraverser;
 import org.example.graphTravelers.DfsGraphTraverser;
 import org.example.graphTravelers.Traverser;
+import org.example.graphs.JungAdapter;
+import org.example.graphs.MyGraph;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Create a graph
-        SparseMultigraph<Integer,String> graph = new SparseMultigraph<>();
+        MyGraph<Integer, String> graph = new JungAdapter<>();
 
         // Add vertices (using Integer nodes)
         graph.addVertex(1);
@@ -29,15 +30,14 @@ public class Main {
         graph.addEdge("E4", 3, 5); // Edge between Vertex 3 and Vertex 5
         graph.addEdge("E5", 4, 5); // Edge between Vertex 4 and Vertex 5
 
-        Traverser dfsGraphTraveler= new DfsGraphTraverser(graph);
-        Traverser bfsGraphTraveler= new BfsGraphTraverser(graph);
+        Traverser dfsGraphTraveler = new DfsGraphTraverser(graph);
+        Traverser bfsGraphTraveler = new BfsGraphTraverser(graph);
 
         List<Integer> dfsPath = dfsGraphTraveler.traverse(1);
         List<Integer> bfsTraveler = bfsGraphTraveler.traverse(1);
 
         System.out.println("Graph-DFS From node 1 is : " + dfsPath);
         System.out.println("Graph-BFS From node 1 is : " + bfsTraveler);
-
 
     }
 }

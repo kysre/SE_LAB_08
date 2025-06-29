@@ -1,13 +1,13 @@
 package org.example.graphTravelers;
 
-import edu.uci.ics.jung.graph.SparseMultigraph;
+import org.example.graphs.MyGraph;
 
 import java.util.*;
 
 public class DfsGraphTraverser implements Traverser {
-    private final SparseMultigraph<Integer, String> graph;
+    private final MyGraph<Integer, String> graph;
 
-    public DfsGraphTraverser(SparseMultigraph<Integer, String> graph) {
+    public DfsGraphTraverser(MyGraph<Integer, String> graph) {
         this.graph = graph;
     }
 
